@@ -20,4 +20,6 @@ function GetInput(){
 	right_released = keyboard_check_released(vk_right);
 	up_released = keyboard_check_released(vk_up);
 	down_released = keyboard_check_released(vk_down);
+	
+	
 }

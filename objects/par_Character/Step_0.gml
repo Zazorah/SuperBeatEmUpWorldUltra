@@ -115,7 +115,7 @@ else if(state == PlayerStates.Jumping)
 			yoffset = 0;
 			yspd = 0;
 			yscale = 0.8; xscale = 1.2;
-			alarm[0] = 15;
+			alarm[0] = 1;
 			
 			state = PlayerStates.Landing;
 		}

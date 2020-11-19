@@ -1,7 +1,10 @@
 {
   "resources": [
     {"id":{"name":"rm_Test_001","path":"rooms/rm_Test_001/rm_Test_001.yy",},"order":1,},
+    {"id":{"name":"par_Hurtbox","path":"objects/par_Hurtbox/par_Hurtbox.yy",},"order":2,},
     {"id":{"name":"obj_Camera","path":"objects/obj_Camera/obj_Camera.yy",},"order":1,},
+    {"id":{"name":"ahb_Placeholder_Proj","path":"sprites/ahb_Placeholder_Proj/ahb_Placeholder_Proj.yy",},"order":0,},
+    {"id":{"name":"DrawShadow","path":"scripts/DrawShadow/DrawShadow.yy",},"order":2,},
     {"id":{"name":"spr_Nicholas_Idle","path":"sprites/spr_Nicholas_Idle/spr_Nicholas_Idle.yy",},"order":0,},
     {"id":{"name":"spr_Nicholas_Walk","path":"sprites/spr_Nicholas_Walk/spr_Nicholas_Walk.yy",},"order":1,},
     {"id":{"name":"GetInput","path":"scripts/GetInput/GetInput.yy",},"order":0,},
@@ -10,6 +13,7 @@
     {"id":{"name":"spr_Nicholas_Jump","path":"sprites/spr_Nicholas_Jump/spr_Nicholas_Jump.yy",},"order":2,},
     {"id":{"name":"spr_Nicholas_Sheet","path":"sprites/spr_Nicholas_Sheet/spr_Nicholas_Sheet.yy",},"order":0,},
     {"id":{"name":"par_Character","path":"objects/par_Character/par_Character.yy",},"order":1,},
+    {"id":{"name":"spr_Placeholder_Proj","path":"sprites/spr_Placeholder_Proj/spr_Placeholder_Proj.yy",},"order":0,},
     {"id":{"name":"rm_Launch","path":"rooms/rm_Launch/rm_Launch.yy",},"order":0,},
   ],
   "Options": [
@@ -57,6 +61,8 @@
     {"folderPath":"folders/Sprites/Characters/Nicholas/Active Hitbox.yy","order":4,"resourceVersion":"1.0","name":"Active Hitbox","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Characters/Nicholas/Passive Hitbox.yy","order":5,"resourceVersion":"1.0","name":"Passive Hitbox","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Effects.yy","order":2,"resourceVersion":"1.0","name":"Effects","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Projectiles.yy","order":4,"resourceVersion":"1.0","name":"Projectiles","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Projectiles/Active Hitboxes.yy","order":1,"resourceVersion":"1.0","name":"Active Hitboxes","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
