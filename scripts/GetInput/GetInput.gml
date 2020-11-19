@@ -9,6 +9,7 @@ function GetInput(){
 	right_pressed = keyboard_check_pressed(vk_right);
 	up_pressed = keyboard_check_pressed(vk_up);
 	down_pressed = keyboard_check_pressed(vk_down);
+	jump_pressed = keyboard_check_pressed(ord("Z"));
 	
 	left_held = keyboard_check(vk_left);
 	right_held = keyboard_check(vk_right);

@@ -3,7 +3,8 @@ GetInput();
 
 //Settings
 var horizontal_spd_cap = 2;
-var vertical_spd_cap = 2;
+var vertical_spd_cap = 1;
+var jump_height = 6;
 
 //Normal Movement
 if(state == PlayerStates.Normal)
@@ -43,7 +44,7 @@ if(state == PlayerStates.Normal)
 	}
 	
 	//No Vertical Pressed
-	if(!up_pressed and !down_pressed)
+	if(!up_held and !down_held)
 	{
 		//Decrease ZSPD
 		if(zspd != 0)
@@ -83,6 +84,52 @@ if(state == PlayerStates.Normal)
 	{
 		sprite_index = idle_sprite;
 	}
+	
+	//Jump
+	if(jump_pressed)
+	{
+		yspd = -jump_height;
+		state = PlayerStates.Jumping;
+	}
+}
+
+//Jumping
+else if(state == PlayerStates.Jumping)
+{
+	//Movement
+	yoffset += yspd;
+	yspd+= 0.3;
+	
+	//Animation
+	sprite_index = jump_sprite;
+	
+	if(yspd < 0) { image_index = 0; }
+	if(yspd > 0) { image_index = 1; }
+	
+	//Fall Back Down
+	if(yoffset >= ground_height)
+	{
+		//Land
+		if(yoffset >= 0)
+		{
+			yoffset = 0;
+			yspd = 0;
+			yscale = 0.8; xscale = 1.2;
+			alarm[0] = 15;
+			
+			state = PlayerStates.Landing;
+		}
+	}
+}
+
+//Landing
+else if(state == PlayerStates.Landing)
+{
+	//Play Animation
+	sprite_index = idle_sprite;
+	
+	//Freeze in Place
+	hspd = 0; zspd = 0;
 }
 
 //Stunned
@@ -94,6 +141,10 @@ else if(state == PlayerStates.Stunned)
 //Lerp Facing
 dir_facing = lerp(dir_facing, dir_facing_set, 0.4);
 
+//Lerp Scales
+xscale = lerp(xscale, 1, 0.2);
+yscale = lerp(yscale, 1, 0.2);
+
 //Collision
 
 //Apply Speeds
@@ -102,5 +153,5 @@ if(global.freeze_frames == 0)
 	x += hspd * global.time_dilation;
 	z += zspd * global.time_dilation;
 	
-	y = z + y_offset;
+	y = z + yoffset;
 }
