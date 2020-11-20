@@ -15,6 +15,13 @@ if(state == PlayerStates.Normal)
 		sprite_index = walk_sprite;
 		
 		hspd = max(-horizontal_spd_cap, hspd - 1);
+		
+		if(dir_facing_set == 1)
+		{
+			xscale = 0.8;
+			yscale = 1.2;
+		}
+		
 		dir_facing_set = -1;
 	}
 	
@@ -24,6 +31,13 @@ if(state == PlayerStates.Normal)
 		sprite_index = walk_sprite;
 		
 		hspd = min(horizontal_spd_cap, hspd + 1);
+		
+		if(dir_facing_set == -1)
+		{
+			xscale = 0.8;
+			yscale = 1.2;
+		}
+		
 		dir_facing_set = 1;
 	}
 	
@@ -139,7 +153,7 @@ else if(state == PlayerStates.Stunned)
 }
 
 //Lerp Facing
-dir_facing = lerp(dir_facing, dir_facing_set, 0.4);
+dir_facing = dir_facing_set;
 
 //Lerp Scales
 xscale = lerp(xscale, 1, 0.2);

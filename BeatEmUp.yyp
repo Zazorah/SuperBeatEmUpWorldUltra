@@ -7,6 +7,7 @@
     {"id":{"name":"GetInput","path":"scripts/GetInput/GetInput.yy",},"order":0,},
     {"id":{"name":"obj_Game","path":"objects/obj_Game/obj_Game.yy",},"order":0,},
     {"id":{"name":"SetAnimationHitbox","path":"scripts/SetAnimationHitbox/SetAnimationHitbox.yy",},"order":1,},
+    {"id":{"name":"spr_UI_StatusBar_Base","path":"sprites/spr_UI_StatusBar_Base/spr_UI_StatusBar_Base.yy",},"order":0,},
     {"id":{"name":"spr_Nicholas_Jump","path":"sprites/spr_Nicholas_Jump/spr_Nicholas_Jump.yy",},"order":2,},
     {"id":{"name":"spr_Nicholas_Sheet","path":"sprites/spr_Nicholas_Sheet/spr_Nicholas_Sheet.yy",},"order":0,},
     {"id":{"name":"par_Character","path":"objects/par_Character/par_Character.yy",},"order":1,},
@@ -57,6 +58,7 @@
     {"folderPath":"folders/Sprites/Characters/Nicholas/Active Hitbox.yy","order":4,"resourceVersion":"1.0","name":"Active Hitbox","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Characters/Nicholas/Passive Hitbox.yy","order":5,"resourceVersion":"1.0","name":"Passive Hitbox","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Effects.yy","order":2,"resourceVersion":"1.0","name":"Effects","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/UI.yy","order":4,"resourceVersion":"1.0","name":"UI","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
