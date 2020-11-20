@@ -1,3 +1,6 @@
+// This will probably be done elsewhere
+global.player1 = self;
+
 //Variables ----------------
 
 //Movement
@@ -11,7 +14,7 @@ ground_height = 0;
 controller_profile = noone;
 
 //Stats
-hp = 20; hp_max = 20;
+hp = 14; hp_max = 14;
 
 //Animation
 xscale = 1; yscale = 1;
@@ -20,6 +23,7 @@ idle_sprite = spr_Nicholas_Idle;
 walk_sprite = spr_Nicholas_Walk;
 jump_sprite = spr_Nicholas_Jump;
 land_sprite = spr_Nicholas_Idle;
+hit_sprite = spr_Nicholas_Hit;
 
 last_sprite = sprite_index;
 
@@ -45,4 +49,25 @@ function ApplyMovement()
 	///@function Applies movment values to update the object's position.
 	
 	
+}
+
+function GetHit(attacker, flung)
+{
+	///@function Get hit by enemy and take damage and maybe fall potentially.
+	
+	if(attacker == noone) ///Probably only using this for Debug purposes. attacker should be an object reference.
+	{
+		hspd = -dir_facing_set * 8;
+		hp -= 1;
+	}
+	
+	else
+	{
+		hp -= attacker.attack_damage;
+		hspd = sign(attacker.x - x) * 2;
+	}
+	
+	state = PlayerStates.Stunned;
+	alarm[0] = 15;
+	sprite_index = hit_sprite;
 }

@@ -22,3 +22,7 @@ global.time_dilation = 1;
 //UI Surface
 global.ui_surface = surface_create(global.camera.view_width, global.camera.view_height);
 global.ui_surface_alpha = 1;
+
+//Players
+global.player1 = noone;
+global.player2 = noone;

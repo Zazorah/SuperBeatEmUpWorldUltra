@@ -1,2 +1,2 @@
-/// @description Leave Landing State
+/// @description Leave Landing/Stunned State
 state = PlayerStates.Normal;

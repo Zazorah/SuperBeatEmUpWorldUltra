@@ -149,7 +149,36 @@ else if(state == PlayerStates.Landing)
 //Stunned
 else if(state == PlayerStates.Stunned)
 {
+	if(global.freeze_frames == 0)
+	{
+		//Decrease ZSPD
+		if(zspd != 0)
+		{
+			if(zspd > 0)
+			{
+				zspd = max(zspd - 1, 0);
+			}
+			
+			if(zspd < 0)
+			{
+				zspd = min(zspd + 1, 0);
+			}
+		}
 	
+		//Decrease HSPD
+		if(hspd != 0)
+		{
+			if(hspd > 0)
+			{
+				hspd = max(hspd - 2, 0);
+			}
+			
+			if(hspd < 0)
+			{
+				hspd = min(hspd + 2, 0);
+			}
+		}
+	}
 }
 
 //Lerp Facing
