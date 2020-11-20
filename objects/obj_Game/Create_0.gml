@@ -18,3 +18,7 @@ global.freeze_frames = 0;
 
 //Time Dilation
 global.time_dilation = 1;
+
+//UI Surface
+global.ui_surface = surface_create(global.camera.view_width, global.camera.view_height);
+global.ui_surface_alpha = 1;
