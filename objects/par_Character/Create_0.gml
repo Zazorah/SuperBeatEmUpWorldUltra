@@ -22,7 +22,7 @@ xscale = 1; yscale = 1;
 idle_sprite = spr_Nicholas_Idle;
 walk_sprite = spr_Nicholas_Walk;
 jump_sprite = spr_Nicholas_Jump;
-land_sprite = spr_Nicholas_Idle;
+land_sprite = spr_Nicholas_Land;
 hit_sprite = spr_Nicholas_Hit;
 
 last_sprite = sprite_index;

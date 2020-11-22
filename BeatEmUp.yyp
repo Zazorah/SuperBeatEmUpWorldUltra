@@ -14,6 +14,7 @@
     {"id":{"name":"obj_Game","path":"objects/obj_Game/obj_Game.yy",},"order":0,},
     {"id":{"name":"SetAnimationHitbox","path":"scripts/SetAnimationHitbox/SetAnimationHitbox.yy",},"order":1,},
     {"id":{"name":"spr_UI_StatusBar_Base","path":"sprites/spr_UI_StatusBar_Base/spr_UI_StatusBar_Base.yy",},"order":0,},
+    {"id":{"name":"spr_Nicholas_Land","path":"sprites/spr_Nicholas_Land/spr_Nicholas_Land.yy",},"order":4,},
     {"id":{"name":"spr_Nicholas_Jump","path":"sprites/spr_Nicholas_Jump/spr_Nicholas_Jump.yy",},"order":2,},
     {"id":{"name":"spr_Nicholas_Sheet","path":"sprites/spr_Nicholas_Sheet/spr_Nicholas_Sheet.yy",},"order":0,},
     {"id":{"name":"par_Character","path":"objects/par_Character/par_Character.yy",},"order":1,},

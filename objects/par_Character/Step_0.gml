@@ -129,7 +129,7 @@ else if(state == PlayerStates.Jumping)
 			yoffset = 0;
 			yspd = 0;
 			yscale = 0.8; xscale = 1.2;
-			alarm[0] = 1;
+			alarm[0] = 12;
 			
 			state = PlayerStates.Landing;
 		}
@@ -140,7 +140,7 @@ else if(state == PlayerStates.Jumping)
 else if(state == PlayerStates.Landing)
 {
 	//Play Animation
-	sprite_index = idle_sprite;
+	sprite_index = land_sprite;
 	
 	//Freeze in Place
 	hspd = 0; zspd = 0;
