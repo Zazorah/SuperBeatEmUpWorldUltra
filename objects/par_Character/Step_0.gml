@@ -1,6 +1,3 @@
-//Get Inputs
-GetInput();
-
 //Settings
 var horizontal_spd_cap = 2;
 var vertical_spd_cap = 1;
@@ -10,7 +7,7 @@ var jump_height = 6;
 if(state == PlayerStates.Normal)
 {
 	//Move Left
-	if(left_held)
+	if(controller_profile.left_held)
 	{
 		sprite_index = walk_sprite;
 		
@@ -26,7 +23,7 @@ if(state == PlayerStates.Normal)
 	}
 	
 	//Move Right
-	else if(right_held)
+	else if(controller_profile.right_held)
 	{
 		sprite_index = walk_sprite;
 		
@@ -42,7 +39,7 @@ if(state == PlayerStates.Normal)
 	}
 	
 	//Walk Up
-	if(up_held)
+	if(controller_profile.up_held)
 	{
 		sprite_index = walk_sprite;
 		
@@ -50,7 +47,7 @@ if(state == PlayerStates.Normal)
 	}
 	
 	//Walk Down
-	else if(down_held)
+	else if(controller_profile.down_held)
 	{
 		sprite_index = walk_sprite;
 		
@@ -58,7 +55,7 @@ if(state == PlayerStates.Normal)
 	}
 	
 	//No Vertical Pressed
-	if(!up_held and !down_held)
+	if(!controller_profile.up_held and !controller_profile.down_held)
 	{
 		//Decrease ZSPD
 		if(zspd != 0)
@@ -76,7 +73,7 @@ if(state == PlayerStates.Normal)
 	}
 	
 	//No Horizontal Pressed
-	if(!right_held and !left_held)
+	if(!controller_profile.right_held and !controller_profile.left_held)
 	{
 		//Decrease HSPD
 		if(hspd != 0)
@@ -100,10 +97,19 @@ if(state == PlayerStates.Normal)
 	}
 	
 	//Jump
-	if(jump_pressed)
+	if(controller_profile.jump_pressed)
 	{
 		yspd = -jump_height;
 		state = PlayerStates.Jumping;
+	}
+	
+	//Enter Dashing State
+	if(controller_profile.double_pressed_right)
+	{ 
+	}
+	
+	if(controller_profile.double_pressed_left)
+	{
 	}
 }
 

@@ -11,7 +11,7 @@ dir_facing = 1; dir_facing_set = 1;
 ground_height = 0;
 
 //Controls
-controller_profile = noone;
+controller_profile = global.control_profiles[| 0];
 
 //Stats
 hp = 14; hp_max = 14;
