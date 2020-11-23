@@ -1,6 +1,6 @@
 //Settings
 var horizontal_spd_cap = 2;
-var sprinting_spd_cap = 4;
+var sprinting_spd_cap = 6;
 var vertical_spd_cap = 1;
 var jump_height = 6;
 
