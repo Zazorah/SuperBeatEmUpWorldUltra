@@ -1,5 +1,6 @@
 //Settings
 var horizontal_spd_cap = 2;
+var sprinting_spd_cap = 4;
 var vertical_spd_cap = 1;
 var jump_height = 6;
 
@@ -103,13 +104,70 @@ if(state == PlayerStates.Normal)
 		state = PlayerStates.Jumping;
 	}
 	
-	//Enter Dashing State
+	//Enter Sprinting State
 	if(controller_profile.double_pressed_right)
-	{ 
+	{
+		state = PlayerStates.Sprinting;
+		dir_facing_set = 1;
 	}
 	
-	if(controller_profile.double_pressed_left)
+	else if(controller_profile.double_pressed_left)
 	{
+		state = PlayerStates.Sprinting;
+		dir_facing_set = -1;
+	}
+}
+
+//Sprinting
+if(state == PlayerStates.Sprinting)
+{
+	//Set Speed
+	hspd = dir_facing_set * sprinting_spd_cap;
+	
+	//Set Animation
+	sprite_index = sprint_sprite;
+	
+	//Walk Up
+	if(controller_profile.up_held)
+	{
+		zspd  = max(-vertical_spd_cap, zspd - 1);
+	}
+	
+	//Walk Down
+	else if(controller_profile.down_held)
+	{
+		zspd = min(vertical_spd_cap, zspd + 1);
+	}
+	
+	//No Vertical Pressed
+	if(!controller_profile.up_held and !controller_profile.down_held)
+	{
+		//Decrease ZSPD
+		if(zspd != 0)
+		{
+			if(zspd > 0)
+			{
+				zspd = max(zspd - 1, 0);
+			}
+			
+			if(zspd < 0)
+			{
+				zspd = min(zspd + 1, 0);
+			}
+		}
+	}
+	
+	//Jump
+	if(controller_profile.jump_pressed)
+	{
+		yspd = -jump_height;
+		state = PlayerStates.Jumping;
+	}
+	
+	//Exit State
+	if((controller_profile.left_released and dir_facing_set == -1) or (controller_profile.right_released and dir_facing_set == 1))
+	{
+		state = PlayerStates.Normal;
 	}
 }
 

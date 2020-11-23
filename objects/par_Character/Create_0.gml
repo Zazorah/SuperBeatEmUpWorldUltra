@@ -24,12 +24,14 @@ walk_sprite = spr_Nicholas_Walk;
 jump_sprite = spr_Nicholas_Jump;
 land_sprite = spr_Nicholas_Land;
 hit_sprite = spr_Nicholas_Hit;
+sprint_sprite = spr_Nicholas_Sprint;
 
 last_sprite = sprite_index;
 
 //State Machine
 enum PlayerStates {
 	Normal,		//Walking around swingin and hittin stuff
+	Sprinting,	//Sprinting. It's like walking but cooler!
 	Jumping,	//Jumping or falling off an elevated platform
 	Landing,	//Short recovery period after landing from a jump or fall
 	Stunned,	//Stunned from an attack and unable to do inputs
@@ -44,13 +46,6 @@ active_hitbox = noone;
 passive_hitbox = noone;
 
 //Functions ----------------
-function ApplyMovement()
-{
-	///@function Applies movment values to update the object's position.
-	
-	
-}
-
 function GetHit(attacker, flung)
 {
 	///@function Get hit by enemy and take damage and maybe fall potentially.
