@@ -1,16 +1,19 @@
 //Settings
 var horizontal_spd_cap = 2;
-var sprinting_spd_cap = 6;
+var sprinting_spd_cap = 4;
 var vertical_spd_cap = 1;
 var jump_height = 6;
 
 //Normal Movement
 if(state == PlayerStates.Normal)
 {
+	hold_last_frame = false;
+	
 	//Move Left
 	if(controller_profile.left_held)
 	{
 		sprite_index = walk_sprite;
+		hold_last_frame = false;
 		
 		hspd = max(-horizontal_spd_cap, hspd - 1);
 		
@@ -126,6 +129,7 @@ if(state == PlayerStates.Sprinting)
 	
 	//Set Animation
 	sprite_index = sprint_sprite;
+	hold_last_frame = false;
 	
 	//Walk Up
 	if(controller_profile.up_held)
@@ -164,10 +168,53 @@ if(state == PlayerStates.Sprinting)
 		state = PlayerStates.Jumping;
 	}
 	
+	//Sprinting Attack
+	if(controller_profile.attack_pressed)
+	{
+		state = PlayerStates.Sprinting_Attack;
+		image_index = 0;
+		hspd = dir_facing_set * sprinting_spd_cap*1.5;
+	}
+	
 	//Exit State
 	if((controller_profile.left_released and dir_facing_set == -1) or (controller_profile.right_released and dir_facing_set == 1))
 	{
 		state = PlayerStates.Normal;
+	}
+}
+
+//Sprinting Attack
+else if(state == PlayerStates.Sprinting_Attack)
+{
+	//Set Animation
+	sprite_index = sprint_attack_sprite;
+	hold_last_frame = true;
+	
+	//Gradual Slowdown
+	if(hspd != 0)
+	{
+		if(hspd > 0)
+		{
+			hspd = max(hspd - 0.1, 0);
+		}
+			
+		if(hspd < 0)
+		{
+			hspd = min(hspd + 0.1, 0);
+		}
+	}
+	
+	//Jump Cancel
+	if(controller_profile.jump_pressed and abs(hspd) > 1)
+	{
+		yspd = -jump_height;
+		state = PlayerStates.Jumping;
+	}
+	
+	//Leave State
+	if(hspd == 0 and alarm[1] == -1)
+	{
+		alarm[1] = 10;
 	}
 }
 
@@ -183,6 +230,53 @@ else if(state == PlayerStates.Jumping)
 	
 	if(yspd < 0) { image_index = 0; }
 	if(yspd > 0) { image_index = 1; }
+	
+	//Fall Back Down
+	if(yoffset >= ground_height)
+	{
+		//Land
+		if(yoffset >= 0)
+		{
+			yoffset = 0;
+			yspd = 0;
+			yscale = 0.8; xscale = 1.2;
+			alarm[0] = 12;
+			
+			state = PlayerStates.Landing;
+		}
+	}
+	
+	//Attack
+	if(controller_profile.attack_pressed)
+	{
+		//Lil lift
+		yspd = -3;
+		
+		//Turn
+		if(controller_profile.right_held)
+		{
+			dir_facing_set = 1;
+		}
+		
+		else if(controller_profile.left_held)
+		{
+			dir_facing_set = -1;
+		}
+		
+		state = PlayerStates.Jumping_Attack;
+	}
+}
+
+//Jump Attack
+else if(state == PlayerStates.Jumping_Attack)
+{
+	//Movement
+	yoffset += yspd;
+	yspd+= 0.3;
+	
+	//Animation
+	sprite_index = jump_attack_sprite;
+	hold_last_frame = true;
 	
 	//Fall Back Down
 	if(yoffset >= ground_height)
@@ -251,6 +345,20 @@ dir_facing = dir_facing_set;
 //Lerp Scales
 xscale = lerp(xscale, 1, 0.2);
 yscale = lerp(yscale, 1, 0.2);
+
+//Hold Last Frame
+if(hold_last_frame)
+{
+	if(image_index > image_number - 1)
+	{
+		image_index = image_number - 1;
+		image_speed = 0;
+	}
+}
+else
+{
+	image_speed = 1 * global.time_dilation;
+}
 
 //Collision
 

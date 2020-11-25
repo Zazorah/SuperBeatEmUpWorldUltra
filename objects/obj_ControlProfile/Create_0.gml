@@ -19,11 +19,13 @@ right_pressed = false;
 up_pressed = false;
 down_pressed = false;
 jump_pressed = false;
+attack_pressed = false;
 	
 left_held = false;
 right_held = false;
 up_held = false;
 down_held = false;
+attack_held = false;
 	
 left_released = false;
 right_released = false;

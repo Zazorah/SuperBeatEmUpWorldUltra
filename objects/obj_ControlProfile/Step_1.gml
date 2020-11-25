@@ -14,16 +14,19 @@ if(type != noone)
 		up_pressed = keyboard_check_pressed(up_button);
 		down_pressed = keyboard_check_pressed(down_button);
 		jump_pressed = keyboard_check_pressed(jump_button);
+		attack_pressed = keyboard_check_pressed(attack_button);
 	
 		left_held = keyboard_check(left_button);
 		right_held = keyboard_check(right_button);
 		up_held = keyboard_check(up_button);
 		down_held = keyboard_check(down_button);
+		attack_held = keyboard_check(attack_button);
 	
 		left_released = keyboard_check_released(left_button);
 		right_released = keyboard_check_released(right_button);
 		up_released = keyboard_check_released(up_button);
 		down_released = keyboard_check_released(down_button);
+		attack_released = keyboard_check_released(attack_button);
 	}
 	
 	else if(type == ControllerTypes.XInputController or type == ControllerTypes.DSController)
