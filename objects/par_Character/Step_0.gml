@@ -119,6 +119,21 @@ if(state == PlayerStates.Normal)
 		state = PlayerStates.Sprinting;
 		dir_facing_set = -1;
 	}
+	
+	//Tekken Side Hop Thing
+	else if(controller_profile.double_pressed_up)
+	{
+		state = PlayerStates.Jumping;
+		yspd = -jump_height/4;
+		zspd = -3;
+	}
+	
+	else if(controller_profile.double_pressed_down)
+	{
+		state = PlayerStates.Jumping;
+		yspd = -jump_height/4;
+		zspd = 3;
+	}
 }
 
 //Sprinting
@@ -207,7 +222,7 @@ else if(state == PlayerStates.Sprinting_Attack)
 	//Jump Cancel
 	if(controller_profile.jump_pressed and abs(hspd) > 1)
 	{
-		yspd = -jump_height;
+		yspd = -floor(jump_height * 0.6);
 		state = PlayerStates.Jumping;
 	}
 	
