@@ -1,0 +1,2 @@
+This is meant to be just like, a test for hitboxes for both collisions and attacking.
+Code for this will probably also work for stuff like barrels or crates or something

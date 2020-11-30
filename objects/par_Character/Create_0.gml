@@ -6,7 +6,7 @@ global.player1 = self;
 //Movement
 hspd = 0; vspd = 0; zspd = 0;
 yoffset = 0;
-z = y;
+z = y; z_depth = 4;
 dir_facing = 1; dir_facing_set = 1;
 ground_height = 0;
 
@@ -33,15 +33,16 @@ hold_last_frame = false; //If true, holds on last frame when animation is done p
 
 //State Machine
 enum PlayerStates {
-	Normal,							//Walking around swingin and hittin stuff
-	Sprinting,						//Sprinting. It's like walking but cooler!
-	Sprinting_Attack,		//Attacking out of a sprinting state
-	Jumping,						//Jumping or falling off an elevated platform
-	Jumping_Attack,			//Attacking out of a jumping state
-	Landing,						//Short recovery period after landing from a jump or fall
-	Stunned,						//Stunned from an attack and unable to do inputs
-	Floored,							//Knocked to the floor, stunned momentarily, but then able to get up
-	Dead								//Dead :(
+	Normal,							// Walking around swingin and hittin stuff
+	Sprinting,						// Sprinting. It's like walking but cooler!
+	Sprinting_Attack,		// Attacking out of a sprinting state
+	Jumping,						// Jumping or falling off an elevated platform
+	Jumping_Attack,			// Attacking out of a jumping state
+	Attacking,						// Doing an attack animation
+	Landing,						// Short recovery period after landing from a jump or fall
+	Stunned,						// Stunned from an attack and unable to do inputs
+	Floored,							// Knocked to the floor, stunned momentarily, but then able to get up
+	Dead								// :(
 }
 
 state = PlayerStates.Normal;

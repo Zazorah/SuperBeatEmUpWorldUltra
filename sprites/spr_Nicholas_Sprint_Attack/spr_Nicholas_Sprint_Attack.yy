@@ -38,7 +38,7 @@
     "spriteId": {"name":"spr_Nicholas_Sprint_Attack","path":"sprites/spr_Nicholas_Sprint_Attack/spr_Nicholas_Sprint_Attack.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 14.0,
+    "playbackSpeed": 18.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

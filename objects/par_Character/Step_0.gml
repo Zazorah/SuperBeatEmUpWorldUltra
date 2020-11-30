@@ -12,7 +12,7 @@ if(state == PlayerStates.Normal)
 	//Move Left
 	if(controller_profile.left_held)
 	{
-		sprite_index = walk_sprite;
+		SetSprite(walk_sprite);
 		hold_last_frame = false;
 		
 		hspd = max(-horizontal_spd_cap, hspd - 1);
@@ -29,7 +29,7 @@ if(state == PlayerStates.Normal)
 	//Move Right
 	else if(controller_profile.right_held)
 	{
-		sprite_index = walk_sprite;
+		SetSprite(walk_sprite);
 		
 		hspd = min(horizontal_spd_cap, hspd + 1);
 		
@@ -45,7 +45,7 @@ if(state == PlayerStates.Normal)
 	//Walk Up
 	if(controller_profile.up_held)
 	{
-		sprite_index = walk_sprite;
+		SetSprite(walk_sprite);
 		
 		zspd  = max(-vertical_spd_cap, zspd - 1);
 	}
@@ -53,7 +53,7 @@ if(state == PlayerStates.Normal)
 	//Walk Down
 	else if(controller_profile.down_held)
 	{
-		sprite_index = walk_sprite;
+		SetSprite(walk_sprite);
 		
 		zspd = min(vertical_spd_cap, zspd + 1);
 	}
@@ -97,7 +97,7 @@ if(state == PlayerStates.Normal)
 	//Idle Animation Set
 	if(hspd == 0 and zspd == 0)
 	{
-		sprite_index = idle_sprite;
+		SetSprite(idle_sprite);
 	}
 	
 	//Jump
@@ -143,7 +143,7 @@ if(state == PlayerStates.Sprinting)
 	hspd = dir_facing_set * sprinting_spd_cap;
 	
 	//Set Animation
-	sprite_index = sprint_sprite;
+	SetSprite(sprint_sprite);
 	hold_last_frame = false;
 	
 	//Walk Up
@@ -202,7 +202,7 @@ if(state == PlayerStates.Sprinting)
 else if(state == PlayerStates.Sprinting_Attack)
 {
 	//Set Animation
-	sprite_index = sprint_attack_sprite;
+	SetSprite(sprint_attack_sprite);
 	hold_last_frame = true;
 	
 	//Gradual Slowdown
@@ -241,7 +241,7 @@ else if(state == PlayerStates.Jumping)
 	yspd+= 0.3;
 	
 	//Animation
-	sprite_index = jump_sprite;
+	SetSprite(jump_sprite);
 	
 	if(yspd < 0) { image_index = 0; }
 	if(yspd > 0) { image_index = 1; }
@@ -290,7 +290,7 @@ else if(state == PlayerStates.Jumping_Attack)
 	yspd+= 0.3;
 	
 	//Animation
-	sprite_index = jump_attack_sprite;
+	SetSprite(jump_attack_sprite);
 	hold_last_frame = true;
 	
 	//Fall Back Down
@@ -313,7 +313,7 @@ else if(state == PlayerStates.Jumping_Attack)
 else if(state == PlayerStates.Landing)
 {
 	//Play Animation
-	sprite_index = land_sprite;
+	SetSprite(land_sprite);
 	
 	//Freeze in Place
 	hspd = 0; zspd = 0;
