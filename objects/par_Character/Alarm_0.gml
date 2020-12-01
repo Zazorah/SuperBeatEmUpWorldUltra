@@ -1,2 +1,5 @@
 /// @description Leave Landing/Stunned State
-state = PlayerStates.Normal;
+if(yoffset == 0)
+{
+	state = PlayerStates.Normal;
+}

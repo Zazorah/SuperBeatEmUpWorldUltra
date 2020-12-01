@@ -16,6 +16,10 @@ controller_profile = global.control_profiles[| 0];
 //Stats
 hp = 14; hp_max = 14;
 
+//Hitboxes
+active_hitbox = noone;
+passive_hitbox = phb_Nicholas_Idle;
+
 //Animation
 xscale = 1; yscale = 1;
 
@@ -23,10 +27,15 @@ idle_sprite = spr_Nicholas_Idle;
 walk_sprite = spr_Nicholas_Walk;
 jump_sprite = spr_Nicholas_Jump;
 land_sprite = spr_Nicholas_Land;
+combo_1_sprite = spr_Nicholas_Combo1;
+combo_2_sprite = spr_Nicholas_Combo2;
+combo_3_sprite = spr_Nicholas_Combo3;
 hit_sprite = spr_Nicholas_Hit;
 sprint_sprite = spr_Nicholas_Sprint;
 sprint_attack_sprite = spr_Nicholas_Sprint_Attack;
 jump_attack_sprite = spr_Nicholas_Jump_Attack;
+
+SetSprite(idle_sprite);
 
 last_sprite = sprite_index;
 hold_last_frame = false; //If true, holds on last frame when animation is done playing.
@@ -47,12 +56,8 @@ enum PlayerStates {
 
 state = PlayerStates.Normal;
 
-//Hitboxes
-active_hitbox = noone;
-passive_hitbox = noone;
-
 //Attacks
-attack_connected = false; //Wether or not the current attack connected with an enemy. Used to continue 3-Hit combo.
+attack_connected = true; //Wether or not the current attack connected with an enemy. Used to continue 3-Hit combo.
 
 //Functions ----------------
 function GetHit(attacker, flung)
