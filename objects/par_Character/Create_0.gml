@@ -51,6 +51,9 @@ state = PlayerStates.Normal;
 active_hitbox = noone;
 passive_hitbox = noone;
 
+//Attacks
+attack_connected = false; //Wether or not the current attack connected with an enemy. Used to continue 3-Hit combo.
+
 //Functions ----------------
 function GetHit(attacker, flung)
 {

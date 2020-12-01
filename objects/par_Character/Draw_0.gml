@@ -9,7 +9,6 @@ if(global.debug)
 {
 	if(active_hitbox != noone)
 	{
-		show_debug_message("Hitbox Hitbox Hitbox");
 		draw_sprite_ext(active_hitbox, image_index, x, y, xscale * image_xscale * dir_facing, yscale * image_yscale, image_angle, image_blend, 0.5);
 	}
 	

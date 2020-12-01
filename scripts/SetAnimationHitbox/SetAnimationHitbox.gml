@@ -6,7 +6,6 @@ function SetAnimationHitbox(name){
 	
 	///Active
 	var active_name = "ahb_" + string_copy(name, 5, string_length(name));
-	show_debug_message(active_name);
 	
 	if(asset_get_index(active_name) != -1)
 	{
@@ -18,15 +17,11 @@ function SetAnimationHitbox(name){
 	}
 	
 	//Passive
-	var passive_name = "phb_" + string_copy(name, 3, string_length(name) - 3);
+	var passive_name = "phb_" + string_copy(name, 5, string_length(name));
 	
 	if(asset_get_index(passive_name) != -1)
 	{
 		passive_hitbox = asset_get_index(passive_name);
 	}
-	else
-	{
-		passive_hitbox = noone;
-	}
-	
+	//Passive Hitbox doesn't get reset to none as not many are needed and we don't really need to change it often.
 }

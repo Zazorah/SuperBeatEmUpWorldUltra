@@ -100,6 +100,18 @@ if(state == PlayerStates.Normal)
 		SetSprite(idle_sprite);
 	}
 	
+	//Attack
+	if(controller_profile.attack_pressed)
+	{
+		state = PlayerStates.Attacking;
+		hspd = sprinting_spd_cap * dir_facing_set * 2; zspd = 0;
+		controller_profile.attack_pressed = false;
+		
+		SetSprite(spr_Nicholas_Combo1);
+		
+		alarm[2] = 20;
+	}
+	
 	//Jump
 	if(controller_profile.jump_pressed)
 	{
@@ -306,6 +318,33 @@ else if(state == PlayerStates.Jumping_Attack)
 			
 			state = PlayerStates.Landing;
 		}
+	}
+}
+
+//Standing Attack
+else if(state == PlayerStates.Attacking)
+{
+	//Hold Animation
+	hold_last_frame = true;
+	
+	//Decrease HSPD
+	if(hspd != 0)
+	{
+		if(hspd > 0)
+		{
+			hspd = max(hspd - 2, 0);
+		}
+			
+		if(hspd < 0)
+		{
+			hspd = min(hspd + 2, 0);
+		}
+	}
+	
+	//Combo Attack
+	if(controller_profile.attack_pressed and attack_connected)
+	{
+		//Do next part of combo...
 	}
 }
 
