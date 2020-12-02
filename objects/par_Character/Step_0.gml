@@ -110,6 +110,8 @@ if(global.freeze_frames == 0)
 			controller_profile.attack_pressed = false;
 		
 			SetSprite(combo_1_sprite);
+			
+			attack_effect = AttackEffects.Normal;
 		
 			alarm[2] = 25;
 		}
@@ -203,6 +205,8 @@ if(global.freeze_frames == 0)
 			state = PlayerStates.Sprinting_Attack;
 			image_index = 0;
 			hspd = dir_facing_set * sprinting_spd_cap*1.5;
+			
+			attack_effect = AttackEffects.Launch;
 		}
 	
 		//Exit State
@@ -291,6 +295,8 @@ if(global.freeze_frames == 0)
 			{
 				dir_facing_set = -1;
 			}
+			
+			attack_effect = AttackEffects.Launch;
 		
 			state = PlayerStates.Jumping_Attack;
 		}
@@ -369,6 +375,8 @@ if(global.freeze_frames == 0)
 			
 				hspd = sprinting_spd_cap * dir_facing_set * 2; zspd = 0;
 				controller_profile.attack_pressed = false;
+				
+				attack_effect = AttackEffects.Launch;
 			
 				alarm[2] = 30;
 			}
