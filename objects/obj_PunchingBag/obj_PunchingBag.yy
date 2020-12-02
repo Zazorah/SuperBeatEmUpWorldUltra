@@ -1,10 +1,16 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_Enemy_PunchingBag_Idle",
+    "path": "sprites/spr_Enemy_PunchingBag_Idle/spr_Enemy_PunchingBag_Idle.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "par_Enemy",
+    "path": "objects/par_Enemy/par_Enemy.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

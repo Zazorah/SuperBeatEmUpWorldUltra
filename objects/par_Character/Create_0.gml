@@ -15,6 +15,7 @@ controller_profile = global.control_profiles[| 0];
 
 //Stats
 hp = 14; hp_max = 14;
+strength = 1; defense = 0;
 
 //Hitboxes
 active_hitbox = noone;
@@ -57,10 +58,18 @@ enum PlayerStates {
 state = PlayerStates.Normal;
 
 //Attacks
+enum AttackEffects {		// This enum will probably also be used by enemies too
+	Normal,							// Attack will keep target on the ground
+	Launch,							// Attack will launch traget into the air
+	Instakill,						// Attack will outright kill it's target
+}
+
+attack_effect = AttackEffects.Normal;
+attack_damage = 0;
 attack_connected = true; //Wether or not the current attack connected with an enemy. Used to continue 3-Hit combo.
 
 //Functions ----------------
-function GetHit(attacker, flung)
+function GetHit(attacker, effect)
 {
 	///@function Get hit by enemy and take damage and maybe fall potentially.
 	
