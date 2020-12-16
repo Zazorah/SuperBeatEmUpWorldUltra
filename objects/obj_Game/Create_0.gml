@@ -8,7 +8,7 @@ enum ControllerTypes {
 room_goto(rm_DebugMenu);
 
 //Debug Flag
-global.debug = true;
+global.debug = false;
 
 //Setup Global Reference to Self
 global.game_controller = self;

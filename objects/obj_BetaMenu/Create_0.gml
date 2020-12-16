@@ -4,8 +4,9 @@ enum OptionType {
 }
 
 contents = [
-	[OptionType.loadRoom, "Nicholas Test Room", rm_Test_001],
-	[OptionType.loadRoom, "Nikki Test Room", rm_Test_002],
+	[OptionType.loadRoom, "Empty Test Room (Nicholas)", rm_Test_001],
+	[OptionType.loadRoom, "Empty Test Room (Nikki)", rm_Test_002],
+	[OptionType.loadRoom, "Arcade Test Room (Nicholas)", rm_Test_Arcade],
 	[OptionType.closeGame, "Close Game"]
 ];
 
